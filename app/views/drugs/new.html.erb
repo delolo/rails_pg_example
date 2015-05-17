@@ -1,0 +1,17 @@
+<h1>New Article</h1>
+
+<%= form_for :drug, url: drugs_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :kind %><br>
+    <%= f.text_field :kind %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

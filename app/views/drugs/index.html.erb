@@ -1,0 +1,17 @@
+<h1>All drugs</h1>
+
+<table>
+  <tr>
+    <th>Proprietary Name</th>
+    <th>Dosage Form</th>
+    <th>Active Ingredient Unit</th>
+  </tr>
+ 
+  <% @drugs.each do |drug| %>
+    <tr>
+      <td><%= truncate(drug.proprietaryname, :length => 20) %></td>
+      <td><%= truncate(drug.dosageformname, :length => 20) %></td>
+      <td><%= truncate(drug.active_ingred_unit, :length => 20) %></td>
+    </tr>
+  <% end %>
+</table>
