@@ -1,4 +1,19 @@
+<div class="container">
+
 <h1>All drugs</h1>
+
+<div class="row">
+<%= form_tag drugs_path, method: :get, class: 'navbar-form navbar-left' do %>
+   <div class='form-group'>
+     <%= text_field_tag :term, params[:term], id: "navbar-search-input", class: 'form-control', placeholder: 'Drug name.....' %>
+   </div>
+   <%= button_tag(type: 'submit', id: 'navbar-search-btn', class: 'btn btn-default') do %>
+     <i class='fa fa-search fa-fw'></i> Search
+   <% end %>  
+<% end %>
+</div>
+
+<div class="row">
 
 <table>
   <tr>
@@ -15,3 +30,5 @@
     </tr>
   <% end %>
 </table>
+</div>
+</div>

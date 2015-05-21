@@ -1,7 +1,17 @@
 class DrugsController < ApplicationController
 
+    def autocomplete
+        @drugs = Drug.where("proprietaryname ILIKE ?", "%#{params[:term]}%")
+        respond_to do |format|
+            format.html
+            format.json { 
+                render json: @drugs.order(:proprietaryname).map(&:proprietaryname)
+            }
+        end
+    end
+
     def index
-        @drugs = Drug.all
+        @drugs = Drug.all.order(:proprietaryname)
     end
 
     def show

@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/autocomplete
 //= require turbolinks
+//= require autocomplete-rails
+//= require bootstrap.min
 //= require_tree .
+
+var ready;
+ready = (function() {
+  $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+  $("#navbar-search-input").autocomplete({
+    source: '/drugs/autocomplete.json',
+  });
+});
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
